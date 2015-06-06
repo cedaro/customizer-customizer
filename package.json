@@ -1,0 +1,24 @@
+{
+  "name": "customizer-customizer",
+  "version": "1.0.0",
+  "description": "A WordPress plugin to allow selected panels and sections to be hidden in the Customizer.",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cedaro/customizer-customizer"
+  },
+  "author": {
+    "name": "Brady Vercher",
+    "email": "brady@blazersix.com",
+    "url": "http://www.cedaro.com/"
+  },
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/cedaro/customizer-customizer/issues"
+  },
+  "homepage": "https://github.com/cedaro/customizer-customizer",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-wp-i18n": "~0.5.2"
+  }
+}

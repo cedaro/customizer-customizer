@@ -122,6 +122,7 @@
 				css  = selector + ',';
 				css += selector + ' > * { display: none;}';
 			}
+			console.log( css );
 
 			this.$el.html( css );
 			return this;
@@ -129,12 +130,12 @@
 	});
 
 	api.bind( 'ready', function() {
-		var $container = $( '#customize-info .customize-panel-description' );
+		var $container = $( '#customize-info' ).find( '.customize-panel-description, .accordion-section-content');
 
 		_.each( settings.groups, function( group ) {
 			var containers = new app.model.Containers();
 
-			_.each( api.settings[ group.group ], function( container ) {
+			_.each( api.settings[ group.group ], function( container, id ) {
 				var attributes = _.pick( container, 'id', 'title' );
 
 				if ( undefined !== container.panel && '' !== container.panel ) {
@@ -142,9 +143,10 @@
 				}
 
 				_.extend( attributes, {
+					id: id,
 					group: group.group,
-					isVisible: -1 === _.indexOf( settings.hidden[ group.group ], container.id ),
-					selector: '#accordion-' + group.type + '-' + container.id,
+					isVisible: -1 === _.indexOf( settings.hidden[ group.group ], id ),
+					selector: '#accordion-' + group.type + '-' + id,
 					type: group.type
 				});
 
